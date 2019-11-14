@@ -4,7 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const state = {
+  todos: [
+    {id: 1, name: 'Go to the gym', isComplete: true},
+    {id: 2, name: 'Shop for groceries', isComplete: true},
+    {id: 3, name: 'Call Mum', isComplete: true}
+  ]
+}
+
+ReactDOM.render(<App todos={state.todos}/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

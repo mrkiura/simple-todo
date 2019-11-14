@@ -1,6 +1,9 @@
 import React from 'react';
+import TodoForm from './components/TodoForm';
+import TodoList from './components/TodoList';
 
-function App() {
+
+function App(props) {
   return (
     <div className="App">
       <div className="App-header">
@@ -9,23 +12,8 @@ function App() {
         </h2>
       </div>
       <div className="Todo-App">
-        <form>
-          <input type="text" />
-        </form>
-        <div className="Todo-List">
-          <ul>
-            <li>
-              <input type="checkbox" /> Work out
-            </li>
-            <li>
-              <input type="checkbox" /> Do shopping
-            </li>
-            <li>
-              <input type="checkbox" />Business Meeting
-            </li>
-          </ul>
-
-        </div>
+        <TodoForm />
+        <TodoList todos={props.todos}/>
       </div>
     </div>
   );
