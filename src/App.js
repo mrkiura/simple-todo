@@ -12,7 +12,7 @@ function App(props) {
         </h2>
       </div>
       <div className="Todo-App">
-        <TodoForm />
+        <TodoForm currentTodo={props.currentTodo} changeCurrent={props.changeCurrent}/>
         <TodoList todos={props.todos}/>
       </div>
     </div>

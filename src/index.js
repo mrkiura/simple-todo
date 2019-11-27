@@ -3,17 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './store';
+import {updateCurrent} from './reducers/todo';
 
+const todoChangeHandler = (value) => store.dispatch(updateCurrent(value));
 
-const state = {
-  todos: [
-    {id: 1, name: 'Go to the gym', isComplete: true},
-    {id: 2, name: 'Shop for groceries', isComplete: true},
-    {id: 3, name: 'Call Mum', isComplete: true}
-  ]
+const render = () => {
+    const state = store.getState()
+    
+    ReactDOM.render(<App 
+        todos={state.todos}
+        currentTodo={state.currentTodo}
+        changeCurrent={todoChangeHandler}
+        />, document.getElementById('root'));
+
 }
 
-ReactDOM.render(<App todos={state.todos}/>, document.getElementById('root'));
+render();
+
+store.subscribe(render);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
